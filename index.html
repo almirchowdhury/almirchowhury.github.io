@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            background: #FFFFFF;
+            overflow: hidden;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        svg {
+            font-family: 'Russo One', sans-serif;
+            width: 100%;
+            height: 20%;
+        }
+
+        svg text {
+            text-transform: uppercase;
+            animation: stroke 5s;
+            animation-fill-mode: forwards;
+            stroke-width: 2;
+            stroke: #000000;
+            font-size: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .buttons a {
+            text-decoration: none;
+        }
+
+        .buttons button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            color: BLACK;
+            background-color: transparent;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+
+        .buttons button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #365fa0;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            opacity: 1;
+            z-index: -1;
+        }
+
+        .buttons button:hover {
+            border-color: #365fa0;
+            color: white;
+        }
+
+        .buttons button:hover:before {
+            transform: scale(1);
+        }
+
+        @keyframes stroke {
+            0%   {
+            fill: rgba(0,0,0,0); stroke: rgba(0,0,0,1); /* change stroke and fill colors here */
+        s   troke-dashoffset: 25%; stroke-dasharray: 0   50%; stroke-width: 2;
+                }
+        70%  {fill: rgba(0,0,0,0); stroke: rgba(0,0,0,1); } /* change stroke and fill colors here */
+        80%  {fill: rgba(0,0,0,0); stroke: rgba(0,0,0,1); stroke-width: 3; } /* change stroke and fill colors here */
+        100% {
+            fill: rgba(0,0,0,1); stroke: rgba(0,0,0,0); /* change stroke and fill colors here */
+            stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+            }
+        }
+
+        .glowing {
+            position: relative;
+            min-width: 700px;
+            height: 550px;
+            margin: -150px;
+            transform-origin: right;
+            animation: colorChange 5s linear infinite;
+        }
+
+        .glowing:nth-child(even) {
+            transform-origin: left;
+        }
+
+        @keyframes colorChange {
+            0% {
+                filter: hue-rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .glowing span {
+            position: absolute;
+            top: calc(80px * var(--i));
+            left: calc(80px * var(--i));
+            bottom: calc(80px * var(--i));
+            right: calc(80px * var(--i));
+        }
+
+        .glowing span::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -8px;
+            width: 15px;
+            height: 15px;
+            background: #f00;
+            border-radius: 50%;
+        }
+
+        .glowing span:nth-child(3n + 1)::before {
+            background: rgba(134,255,0,1);
+            box-shadow: 0 0 20px rgba(134,255,0,1),
+            0 0 40px rgba(134,255,0,1),
+            0 0 60px rgba(134,255,0,1),
+            0 0 80px rgba(134,255,0,1),
+            0 0 0 8px rgba(134,255,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 2)::before {
+            background: rgba(255,214,0,1);
+            box-shadow: 0 0 20px rgba(255,214,0,1),
+            0 0 40px rgba(255,214,0,1),
+            0 0 60px rgba(255,214,0,1),
+            0 0 80px rgba(255,214,0,1),
+            0 0 0 8px rgba(255,214,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 3)::before {
+            background: rgba(0,226,255,1);
+            box-shadow: 0 0 20px rgba(0,226,255,1),
+            0 0 40px rgba(0,226,255,1),
+            0 0 60px rgba(0,226,255,1),
+            0 0 80px rgba(0,226,255,1),
+            0 0 0 8px rgba(0,226,255,.1);
+        }
+
+        .glowing span:nth-child(3n + 1) {
+            animation: animate 10s alternate infinite;
+        }
+
+        .glowing span:nth-child(3n + 2) {
+            animation: animate-reverse 3s alternate infinite;
+        }
+
+        .glowing span:nth-child(3n + 3) {
+            animation: animate 8s alternate infinite; 
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(180deg);
+            }
+            50% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes animate-reverse {
+            0% {
+                transform: rotate(360deg);
+            }
+            
+            50% {
+                transform: rotate(180deg);
+            }
+            
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <svg viewBox="0 0 1500 300">
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle">Almir Chowdhury</text>
+        </svg>
+
+        <div class="buttons">
+            <a href="about.html"><button>About Me</button></a>
+            <a href="projects.html"><button>Personal Projects</button></a>
+            <a href="contact.html"><button>Contact Me</button></a>
+        </div>
+    </div>
+
+    <!-- Add the glowing element here -->
+    <div class="glowing">
+        <!-- your code -->
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:8;"></span>
+    </div>
+</body>
+</html>
