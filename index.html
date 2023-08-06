@@ -15,7 +15,7 @@
             align-items: center;
             width: 100%;
             min-height: 100vh;
-            background: #FFFFFF;
+            background: black;
             overflow: hidden;
         }
 
@@ -38,7 +38,7 @@
             animation: stroke 5s;
             animation-fill-mode: forwards;
             stroke-width: 2;
-            stroke: #000000;
+            stroke: #FFFFFF;
             font-size: 140px;
         }
 
@@ -56,7 +56,7 @@
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 20px;
-            color: BLACK;
+            color: #FFFFFF;
             background-color: transparent;
             border: 2px solid transparent;
             position: relative;
@@ -87,33 +87,46 @@
             transform: scale(1);
         }
 
-        @keyframes stroke {
-            0%   {
-            fill: rgba(0,0,0,0); stroke: rgba(0,0,0,1); /* change stroke and fill colors here */
-        s   troke-dashoffset: 25%; stroke-dasharray: 0   50%; stroke-width: 2;
-                }
-        70%  {fill: rgba(0,0,0,0); stroke: rgba(0,0,0,1); } /* change stroke and fill colors here */
-        80%  {fill: rgba(0,0,0,0); stroke: rgba(0,0,0,1); stroke-width: 3; } /* change stroke and fill colors here */
-        100% {
-            fill: rgba(0,0,0,1); stroke: rgba(0,0,0,0); /* change stroke and fill colors here */
-            stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
-            }
+    @keyframes stroke {
+    0%   {
+        fill: rgba(255,255,255,0);
+        stroke: rgba(255,255,255,1);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    70%  {
+        fill: rgba(255,255,255,0);
+        stroke: rgba(255,255,255,1);
+    }
+    80%  {
+        fill: rgba(255,255,255,0);
+        stroke: rgba(255,255,255,1);
+        stroke-width: 3;
+    }
+    100% {
+        fill: rgba(255,255,255,1);
+        stroke: rgba(255,255,255,0);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+    }
+
+    .glowing {
+        position: relative;
+        min-width: 700px;
+        height: 550px;
+        margin: -150px;
+        transform-origin: right;
+        animation: colorChange 5s linear infinite;
         }
 
-        .glowing {
-            position: relative;
-            min-width: 700px;
-            height: 550px;
-            margin: -150px;
-            transform-origin: right;
-            animation: colorChange 5s linear infinite;
-        }
+    .glowing:nth-child(even) {
+        transform-origin: left;
+    }
 
-        .glowing:nth-child(even) {
-            transform-origin: left;
-        }
-
-        @keyframes colorChange {
+     @keyframes colorChange {
             0% {
                 filter: hue-rotate(0deg);
                 transform: rotate(0deg);
@@ -218,13 +231,13 @@
         <div class="buttons">
             <a href="about.html"><button>About Me</button></a>
             <a href="projects.html"><button>Personal Projects</button></a>
-            <a href="contact.html"><button>Contact Me</button></a>
+            <div style="visibility:hidden;"><button>Contact Me</button></div> <!-- Invisible button placeholder -->
+        </div>
         </div>
     </div>
 
-    <!-- Add the glowing element here -->
+
     <div class="glowing">
-        <!-- your code -->
         <span style="--i:1;"></span>
         <span style="--i:2;"></span>
         <span style="--i:3;"></span>
