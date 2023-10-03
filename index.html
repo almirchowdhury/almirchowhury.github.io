@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>My Portfolio</title>
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
@@ -10,7 +11,7 @@
         }
 
         body {
-            display: flex; 
+            display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
@@ -73,9 +74,8 @@
             height: 100%;
             background: #365fa0;
             transform: scale(0);
-            transition: transform 0.3s ease;
-            opacity: 1;
-            z-index: -1;
+            transition: transform 0.3s ease, opacity 0.3s ease; 
+            z-index: 1;
         }
 
         .buttons button:hover {
@@ -83,50 +83,55 @@
             color: white;
         }
 
+        .buttons button span {
+            position: relative;
+            z-index: 3; 
+        }
+
         .buttons button:hover:before {
             transform: scale(1);
         }
 
-    @keyframes stroke {
-    0%   {
-        fill: rgba(255,255,255,0);
-        stroke: rgba(255,255,255,1);
-        stroke-dashoffset: 25%;
-        stroke-dasharray: 0 50%;
-        stroke-width: 2;
-    }
-    70%  {
-        fill: rgba(255,255,255,0);
-        stroke: rgba(255,255,255,1);
-    }
-    80%  {
-        fill: rgba(255,255,255,0);
-        stroke: rgba(255,255,255,1);
-        stroke-width: 3;
-    }
-    100% {
-        fill: rgba(255,255,255,1);
-        stroke: rgba(255,255,255,0);
-        stroke-dashoffset: -25%;
-        stroke-dasharray: 50% 0;
-        stroke-width: 0;
-    }
-    }
-
-    .glowing {
-        position: relative;
-        min-width: 700px;
-        height: 550px;
-        margin: -150px;
-        transform-origin: right;
-        animation: colorChange 5s linear infinite;
+        @keyframes stroke {
+            0% {
+                fill: rgba(255, 255, 255, 0);
+                stroke: rgba(255, 255, 255, 1);
+                stroke-dashoffset: 25%;
+                stroke-dasharray: 0 50%;
+                stroke-width: 2;
+            }
+            70% {
+                fill: rgba(255, 255, 255, 0);
+                stroke: rgba(255, 255, 255, 1);
+            }
+            80% {
+                fill: rgba(255, 255, 255, 0);
+                stroke: rgba(255, 255, 255, 1);
+                stroke-width: 3;
+            }
+            100% {
+                fill: rgba(255, 255, 255, 1);
+                stroke: rgba(255, 255, 255, 0);
+                stroke-dashoffset: -25%;
+                stroke-dasharray: 50% 0;
+                stroke-width: 0;
+            }
         }
 
-    .glowing:nth-child(even) {
-        transform-origin: left;
-    }
+        .glowing {
+            position: relative;
+            min-width: 700px;
+            height: 550px;
+            margin: -150px;
+            transform-origin: right;
+            animation: colorChange 5s linear infinite;
+        }
 
-     @keyframes colorChange {
+        .glowing:nth-child(even) {
+            transform-origin: left;
+        }
+
+        @keyframes colorChange {
             0% {
                 filter: hue-rotate(0deg);
                 transform: rotate(0deg);
@@ -192,7 +197,7 @@
         }
 
         .glowing span:nth-child(3n + 3) {
-            animation: animate 8s alternate infinite; 
+            animation: animate 8s alternate infinite;
         }
 
         @keyframes animate {
@@ -222,6 +227,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="content">
         <svg viewBox="0 0 1500 300">
@@ -229,13 +235,11 @@
         </svg>
 
         <div class="buttons">
-            <a href="about.html"><button>About Me</button></a>
-            <a href="projects.html"><button>Personal Projects</button></a>
-            <div style="visibility:hidden;"><button>Contact Me</button></div> <!-- Invisible button placeholder -->
-        </div>
+            <a href="about.html"><button><span>About Me</span></button></a>
+            <a href="projects.html"><button><span>Personal Projects</span></button></a>
+            <div style="visibility:hidden;"><button>Contact Me</button></div>
         </div>
     </div>
-
 
     <div class="glowing">
         <span style="--i:1;"></span>
@@ -248,4 +252,5 @@
         <span style="--i:8;"></span>
     </div>
 </body>
+
 </html>
