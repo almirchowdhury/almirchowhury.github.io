@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About Me</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            background: black;
+        }
+
+        .description {
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            font-size: 16px;
+            margin-bottom: 100px;
+        }
+
+        .glowing {
+            position: relative;
+            min-width: 700px;
+            height: 550px;
+            margin: -150px;
+            transform-origin: right;
+            animation: colorChange 5s linear infinite;
+        }
+
+        .glowing:nth-child(even) {
+            transform-origin: left;
+        }
+
+        @keyframes colorChange {
+            0% {
+                filter: hue-rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .glowing span {
+            position: absolute;
+            top: calc(80px * var(--i));
+            left: calc(80px * var(--i));
+            bottom: calc(80px * var(--i));
+            right: calc(80px * var(--i));
+        }
+
+        .glowing span::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -8px;
+            width: 15px;
+            height: 15px;
+            background: #f00;
+            border-radius: 50%;
+        }
+
+        .glowing span:nth-child(3n + 1)::before {
+            background: rgba(134,255,0,1);
+            box-shadow: 0 0 20px rgba(134,255,0,1),
+            0 0 40px rgba(134,255,0,1),
+            0 0 60px rgba(134,255,0,1),
+            0 0 80px rgba(134,255,0,1),
+            0 0 0 8px rgba(134,255,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 2)::before {
+            background: rgba(255,214,0,1);
+            box-shadow: 0 0 20px rgba(255,214,0,1),
+            0 0 40px rgba(255,214,0,1),
+            0 0 60px rgba(255,214,0,1),
+            0 0 80px rgba(255,214,0,1),
+            0 0 0 8px rgba(255,214,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 3)::before {
+            background: rgba(0,226,255,1);
+            box-shadow: 0 0 20px rgba(0,226,255,1),
+            0 0 40px rgba(0,226,255,1),
+            0 0 60px rgba(0,226,255,1),
+            0 0 80px rgba(0,226,255,1),
+            0 0 0 8px rgba(0,226,255,.1);
+        }
+
+        .glowing span:nth-child(3n + 1) {
+            animation: animate 10s alternate infinite;
+        }
+
+        .glowing span:nth-child(3n + 2) {
+            animation: animate-reverse 3s alternate infinite;
+        }
+
+        .glowing span:nth-child(3n + 3) {
+            animation: animate 8s alternate infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(180deg);
+            }
+            50% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes animate-reverse {
+            0% {
+                transform: rotate(360deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            max-width: 800px;
+        }
+
+        img {
+            display: block;
+            max-width: 150px;
+            height: auto;
+            margin: 0 auto 20px auto; /* Gives a little space between the image and the text */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="glowing">
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:8;"></span>
+    </div>
+
+
+    <div class="content">
+        <img src="about.png" alt="A picture of me" />
+        <div class="description">
+            <b>Hi! My name is Almir Chowdhury, and I'm a passionate computer science major at Syracuse University. My interest in computer science began when I discovered jailbreaking and began crafting custom modifications for applications. This experience propelled me deeper into the realm of computer science. By the age of 14, I had built my first computer. Ever since, I've been expanding my knowledge of programming and computer science, enhancing my skills each day. The process of creating functional software is immensely satisfying to me, and I deeply love programming.</b>
+        </div>
+    </div>
+</body>
+
+</html>
