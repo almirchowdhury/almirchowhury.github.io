@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Color-Chasing Border</title>
+  <style>
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      background: #fff;
+      font-family: sans-serif;
+    }
+
+    /* Parent container for the glowing border */
+    .glow-box {
+      position: relative;
+      width: 500px;   /* Adjust as needed */
+      height: 300px;  /* Adjust as needed */
+      /* We do not set a background color here so the center stays transparent */
+    }
+
+    /* 
+       We'll use two pseudo-elements:
+         ::before = crisp border
+         ::after  = blurred glow
+       Both use the same animated gradient and a masking trick to show only the “frame.”
+    */
+
+    .glow-box::before,
+    .glow-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;             /* fill the entire box */
+      border-radius: 10px;  /* slightly rounded corners if desired */
+      /* 
+         We’ll mask out the center so only the outer ring shows.
+         -webkit-mask + mask-composite: exclude
+         basically “punches out” the middle, leaving just the border ring.
+      */
+      -webkit-mask:
+         linear-gradient(#fff 0 0) content-box, 
+         linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude; 
+      padding: 5px; /* thickness of the border (increase for thicker frame) */
+    }
+
+    /* The crisp border in front */
+    .glow-box::before {
+      background: linear-gradient(90deg, 
+        red, 
+        orange, 
+        yellow, 
+        green, 
+        blue, 
+        purple, 
+        red
+      );
+      background-size: 400% 100%;
+      animation: chase 3s linear infinite;
+      z-index: 2; /* Above the glow */
+    }
+
+    /* The blurred glow behind the border */
+    .glow-box::after {
+      background: linear-gradient(90deg, 
+        red, 
+        orange, 
+        yellow, 
+        green, 
+        blue, 
+        purple, 
+        red
+      );
+      background-size: 400% 100%;
+      animation: chase 10s linear infinite;
+      filter: blur(20px); /* Radius of the glow—tweak to taste */
+      z-index: 1;         /* Behind the crisp border */
+    }
+
+    /* Keyframe animation to shift the gradient horizontally,
+       creating a continuous “chase” effect around the perimeter. */
+    @keyframes chase {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 400% 50%;
+      }
+    }
+
+    /* Optional text inside the box. 
+       Just place it as a sibling, or place absolutely inside .glow-box.
+       Here’s a quick example:
+    */
+    .centered-content {
+      position: absolute;
+      color: #000;
+      text-align: center;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-box">
+    <!-- Example content in the center -->
+    <div class="centered-content" style="width:100%; top:50%; transform:translateY(-50%)">
+      <h1>Welcome to My Portfolio</h1>
+      <p>A smooth color-chase border, fully drawn at all times.</p>
+    </div>
+  </div>
+
+</body>
+</html>

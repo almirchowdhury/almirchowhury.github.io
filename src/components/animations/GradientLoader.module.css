@@ -1,0 +1,35 @@
+.loader {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 20px;
+  background: #FFF;
+  animation: animate 20s linear infinite;
+  background-size: 500%;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094);
+  animation: animate 20s linear infinite;
+  background-size: 500%;
+  border-radius: 10px;
+}
+
+.loader::after {
+  filter: blur(20px);
+}
+
+@keyframes animate {
+  0% {
+    background-position: 500% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
