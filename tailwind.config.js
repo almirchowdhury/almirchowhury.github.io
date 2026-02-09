@@ -6,15 +6,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        neon: {
-          green: 'rgba(134, 255, 0, 1)',
-          cyan: 'rgba(0, 226, 255, 1)',
-          yellow: 'rgba(255, 214, 0, 1)',
-        },
+        ink: '#1d1f2a',
+        muted: '#5f6977',
+        accent: '#c36a43',
+        accent2: '#1a7f8d',
+        accent3: '#d9a441',
+        surface: '#f6f1ea',
+        sand: '#efe5d9',
       },
       fontFamily: {
-        display: ['"Russo One"', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['"Fraunces"', 'serif'],
+        sans: ['"Manrope"', 'sans-serif'],
       },
       screens: {
         'xs': '375px',

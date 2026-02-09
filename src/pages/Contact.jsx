@@ -2,58 +2,51 @@ import { motion } from 'framer-motion';
 import { Layout } from '../components/layout/Layout';
 import { PageTransition } from '../components/layout/PageTransition';
 import { Container } from '../components/ui/Container';
+import { AnimatedButton } from '../components/animations/AnimatedButton';
 
 export function Contact() {
   return (
     <Layout>
       <PageTransition>
-        <Container className="min-h-screen flex items-center justify-center py-24 md:py-32">
+        <Container className="py-24 md:py-32">
           <motion.div
-            className="text-center max-w-2xl"
+            className="mx-auto max-w-3xl text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h1 className="font-display text-4xl md:text-6xl mb-8 text-white">
-              Get In Touch
-            </h1>
+            <div className="surface-card p-10 md:p-14">
+              <p className="eyebrow mb-3">Contact</p>
+              <h1 className="font-display text-3xl text-ink md:text-5xl">
+                Let's build something thoughtful.
+              </h1>
+              <p className="mt-4 text-sm text-muted md:text-base">
+                Whether you want to collaborate, hire, or just say hello, I'd love to
+                connect. I'm always open to new ideas and ambitious builds.
+              </p>
 
-            <p className="font-sans text-lg md:text-xl text-white/90 mb-12">
-              Interested in working together or have a question? Feel free to reach out!
-            </p>
-
-            <div className="flex flex-col gap-6">
-              <motion.a
-                href="mailto:almirchowdhury01@gmail.com"
-                className="font-sans text-lg text-neon-cyan hover:text-neon-green transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                almirchowdhury01@gmail.com
-              </motion.a>
-
-              <div className="flex justify-center gap-8 mt-8">
-                <motion.a
-                  href="https://linkedin.com/in/almir-chowdhury"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-white hover:text-neon-cyan transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <AnimatedButton external to="mailto:almirchowdhury@gmail.com">
+                  Email Me
+                </AnimatedButton>
+                <AnimatedButton
+                  external
+                  to="https://www.linkedin.com/in/almir-chowdhury-9b4637262/"
+                  variant="secondary"
                 >
                   LinkedIn
-                </motion.a>
-
-                <motion.a
-                  href="https://github.com/almirchowhury"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-white hover:text-neon-cyan transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                </AnimatedButton>
+                <AnimatedButton
+                  external
+                  to="https://github.com/almirchowhury"
+                  variant="secondary"
                 >
                   GitHub
-                </motion.a>
+                </AnimatedButton>
+              </div>
+
+              <div className="mt-8 text-sm text-muted">
+                Prefer email? <span className="font-semibold text-ink">almirchowdhury@gmail.com</span>
               </div>
             </div>
           </motion.div>

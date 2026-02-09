@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --surface: #f6f1ea;
+    --surface-2: #efe5d9;
+    --surface-3: #fffaf4;
+    --ink: #1d1f2a;
+    --muted: #5f6977;
+    --accent: #c36a43;
+    --accent-2: #1a7f8d;
+    --accent-3: #d9a441;
+    --border: rgba(29, 31, 42, 0.12);
+    --shadow: 0 20px 50px rgba(29, 31, 42, 0.12);
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -10,13 +23,63 @@
   }
 
   body {
-    @apply bg-black text-white;
-    font-family: Inter, system-ui, sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: rgba(195, 106, 67, 0.2);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .surface-card {
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .surface-card-soft {
+    background: rgba(255, 250, 244, 0.72);
+    border: 1px solid rgba(29, 31, 42, 0.08);
+    border-radius: 20px;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(26, 127, 141, 0.1);
+    color: var(--ink);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .chip-accent {
+    background: rgba(195, 106, 67, 0.12);
+  }
+
+  .chip-gold {
+    background: rgba(217, 164, 65, 0.16);
   }
 }
 
@@ -26,8 +89,37 @@
   }
 
   .backdrop-blur-glass {
-    backdrop-filter: blur(12px);
-    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(18px);
+    background: rgba(255, 250, 244, 0.78);
+    border: 1px solid rgba(29, 31, 42, 0.08);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(29, 31, 42, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(29, 31, 42, 0.08) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 999px;
+    animation: float 14s ease-in-out infinite;
+  }
+
+  .orb-slow {
+    animation-duration: 22s;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
   }
 }
 
