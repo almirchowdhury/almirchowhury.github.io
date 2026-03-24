@@ -6,6 +6,13 @@ import { ProjectCard } from '../components/projects/ProjectCard';
 
 const projects = [
   {
+    title: 'Trndsttr',
+    subtitle: 'Promptless AI UGC creation platform',
+    media: { type: 'video', src: '/videos/trndsttr.mp4' },
+    description: 'A full-stack platform for generating AI UGC videos and images without prompt engineering. Users upload a product image, choose a hook, and describe the product, then Gemini combines the inputs into a polished generation prompt that powers Sora. The app also includes subscriptions, credit tracking, and Firebase-backed account flows to turn the creative pipeline into a usable product.',
+    tags: ['Gemini', 'Sora', 'LLM Prompt Composition', 'AI Pipeline', 'Firebase'],
+  },
+  {
     title: 'Generative Apparel',
     subtitle: 'AI-powered apparel design platform',
     media: { type: 'gif', src: '/images/GAdemo.gif', alt: 'Generative Apparel Demo' },
@@ -32,13 +39,6 @@ const projects = [
     media: { type: 'video', src: '/videos/leds.mp4' },
     description: 'Built a WiFi-controllable LED system using WLED and an ESP32 microcontroller. The project blends soldering, microcontroller programming, and IoT control to deliver a responsive, customizable lighting setup.',
     tags: ['ESP32', 'WLED', 'IoT', 'Hardware'],
-  },
-  {
-    title: 'Dynamically Responsive Chromatic Audio-Interactive Wallpaper Engine Effect',
-    subtitle: 'Audio-reactive visual system',
-    media: { type: 'video', src: '/videos/hue.mp4' },
-    description: 'An audio-reactive wallpaper built with Wallpaper Engine and SceneScript that shifts hues based on real-time input. It turns sound into a living, immersive desktop environment.',
-    tags: ['Wallpaper Engine', 'SceneScript', 'Audio Reactive'],
   },
   {
     title: 'Pytesseract OCR Text Extraction Snipping Tool',

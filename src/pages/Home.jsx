@@ -88,11 +88,12 @@ export function Home() {
                   <div>
                     <p className="eyebrow mb-2">Featured</p>
                     <h2 className="font-display text-2xl text-ink">
-                      Generative Apparel
+                      Trndsttr
                     </h2>
                     <p className="mt-3 text-sm text-muted">
-                      An AI-powered platform for custom apparel design, built end-to-end
-                      with a focus on speed, clarity, and creative freedom.
+                      A full-stack product for generating branded AI videos and images
+                      from a product image, a hook, and a short description, without
+                      requiring users to write prompts themselves.
                     </p>
                   </div>
 
@@ -100,19 +101,19 @@ export function Home() {
                     <div className="surface-card-soft p-4">
                       <p className="eyebrow mb-2">Focus</p>
                       <p className="font-display text-lg text-ink">
-                        Product UX
+                        Prompt Composition
                       </p>
                       <p className="text-sm text-muted">
-                        Clean interfaces and fast flows.
+                        Structured inputs transformed into ready-to-run generation flows.
                       </p>
                     </div>
                     <div className="surface-card-soft p-4">
                       <p className="eyebrow mb-2">Stack</p>
                       <p className="font-display text-lg text-ink">
-                        React + AWS
+                        Gemini + Sora
                       </p>
                       <p className="text-sm text-muted">
-                        Scalable infrastructure and data.
+                        Firebase-backed accounts, billing, and credit tracking.
                       </p>
                     </div>
                   </div>
