@@ -12,19 +12,25 @@ export function ProjectCard({
 }) {
   const renderMedia = () => {
     if (media?.type === 'video') {
-      return <VideoPlayer src={media.src} className="rounded-3xl" />;
+      return (
+        <div className="aspect-[16/10] overflow-hidden rounded-3xl">
+          <VideoPlayer src={media.src} className="h-full rounded-none" />
+        </div>
+      );
     }
     if (media?.type === 'image' || media?.type === 'gif') {
       return (
-        <motion.img
-          src={media.src}
-          alt={media.alt || title}
-          className="w-full rounded-3xl object-cover shadow-[0_20px_45px_rgba(29,31,42,0.18)]"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        />
+        <div className="aspect-[16/10] overflow-hidden rounded-3xl">
+          <motion.img
+            src={media.src}
+            alt={media.alt || title}
+            className="h-full w-full rounded-none object-cover shadow-[0_20px_45px_rgba(29,31,42,0.18)]"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+          />
+        </div>
       );
     }
     return null;
@@ -33,7 +39,6 @@ export function ProjectCard({
   return (
     <motion.div
       className={`surface-card p-6 md:p-10 ${className}`}
-      style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
