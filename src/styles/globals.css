@@ -31,10 +31,6 @@
     overflow-x: hidden;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   ::selection {
     background: rgba(195, 106, 67, 0.2);
     color: var(--ink);
@@ -89,8 +85,9 @@
   }
 
   .backdrop-blur-glass {
-    backdrop-filter: blur(18px);
-    background: rgba(255, 250, 244, 0.78);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 250, 244, 0.88);
     border: 1px solid rgba(29, 31, 42, 0.08);
   }
 
@@ -99,13 +96,15 @@
       linear-gradient(rgba(29, 31, 42, 0.08) 1px, transparent 1px),
       linear-gradient(90deg, rgba(29, 31, 42, 0.08) 1px, transparent 1px);
     background-size: 44px 44px;
-    mask-image: radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));
+    opacity: 0.2;
   }
 
   .orb {
     position: absolute;
     border-radius: 999px;
     animation: float 14s ease-in-out infinite;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 
   .orb-slow {
@@ -116,10 +115,10 @@
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-18px);
+    transform: translate3d(0, -18px, 0);
   }
 }
 

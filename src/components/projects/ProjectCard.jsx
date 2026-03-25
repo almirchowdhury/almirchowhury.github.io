@@ -33,6 +33,7 @@ export function ProjectCard({
   return (
     <motion.div
       className={`surface-card p-6 md:p-10 ${className}`}
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}

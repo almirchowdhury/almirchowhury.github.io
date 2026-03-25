@@ -13,6 +13,13 @@ const projects = [
     tags: ['Gemini', 'Sora', 'LLM Prompt Composition', 'AI Pipeline', 'Firebase'],
   },
   {
+    title: 'Desktop Commander',
+    subtitle: 'MCP-powered macOS computer control',
+    media: { type: 'video', src: '/videos/dcdemo.mp4' },
+    description: 'Contract work for Desktop Commander focused on enabling Claude to control macOS UI elements through MCP. I implemented the bridge between model intent and real desktop actions so the agent could interact with on-screen interfaces, execute workflows, and move beyond chat into hands-on computer use. The result was a more capable AI product grounded in reliable system interaction and agentic automation.',
+    tags: ['MCP', 'Computer Use', 'Claude', 'macOS Automation', 'AI Agents'],
+  },
+  {
     title: 'Generative Apparel',
     subtitle: 'AI-powered apparel design platform',
     media: { type: 'gif', src: '/images/GAdemo.gif', alt: 'Generative Apparel Demo' },

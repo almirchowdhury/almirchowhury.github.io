@@ -22,12 +22,11 @@ export function VideoPlayer({ src, className = '', poster }) {
   return (
     <video
       ref={videoRef}
-      autoPlay
       loop
       muted
       playsInline
       poster={poster}
-      preload="metadata"
+      preload="none"
       className={`w-full rounded-3xl object-cover shadow-[0_20px_45px_rgba(29,31,42,0.18)] ${className}`}
     >
       <source src={src} type="video/mp4" />
